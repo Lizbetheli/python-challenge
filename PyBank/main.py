@@ -42,8 +42,7 @@ with open(csvpath,newline='') as csvfile:
 #print statements
     print(f'Financial Analysis' + '\n')
     print(f'------------------'+ '\n')
-    print("Total:" + str(total_months))
+    print("Total Months:" + str(total_months))
     print(f"Average Change: ${average_change_round}")
     print(f"Greatest Increase in Profits: {max_date} (${max_increase})")
     print(f"Greatest Decrease in Profits: {min_date} (${min_decrease})")
-    
