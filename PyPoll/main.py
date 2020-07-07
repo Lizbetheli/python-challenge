@@ -8,15 +8,17 @@ csvpath= os.path.join("Resources", "election_data.csv")
 with open (csvpath, newline = '') as csvfile:
     csvreader=csv.reader(csvfile,delimiter=',')
     csv_header=next(csvreader)
-    #first_row = next(csvreader) 
+    
 
 
-    #dictionary
-    candidates = {}
-    candidate_list = []
-    total_votes = 0
+    #variables
+    candidates = {} 
+    candidate_list = [] 
+    total_votes = 0 
     max_votes = []
-    #loop
+    percent = [] 
+
+    #loop to find votes / person
     for row in csvreader:
         total_votes = total_votes + 1
         candidate_name = row[2]
@@ -26,23 +28,18 @@ with open (csvpath, newline = '') as csvfile:
             candidates[candidate_name] = 0
 
         candidates[candidate_name] = candidates[candidate_name] + 1
-    
-    #winner = candidates[candidatesCount.index(max(candidate_list))]
-    '''for x in range(len(candidate_name)):       
- 
-        if candidate_name[x] > max_votes :
-           max_votes = candidate_name[x]
-           max_index = x
-    election_winner = candidate_name[max_index]  
-print(election_winner)
-print(max(int(s) for s in candidates))'''
-#print statements 
+
+#find winner
+    max_votes = max(candidates.values())
+    winner = [name for name, votes in candidates.items() if votes == max_votes][0]
+  
+#print statements
 print("Election Results")
 print("-------------- ")
 print(f"Total Votes: {total_votes}")
 print("--------------")
-for key, value in candidates.items():
-    print(key, ' : ', value)
+for candidate, num_votes in candidates.items():
+    print(candidate, ': ', num_votes, " (", str(round(100*num_votes/total_votes)), "%)")
 print("-------------- ")
-print("Winner: {winner}")
+print(f"Winner: {winner}")
 print("-------------- ")
