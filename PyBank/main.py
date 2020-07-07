@@ -15,7 +15,8 @@ with open(csvpath,newline='') as csvfile:
     total_net = 0
     date = []
     net_change_list = []
-    first_row = next(csvreader) 
+
+    first_row = (next(csvreader))
     total_net += int(first_row[1])
     prev_net=int(first_row[1])
     
@@ -28,10 +29,12 @@ with open(csvpath,newline='') as csvfile:
         net_change_list += [net_change]    
         average_change = sum(net_change_list) / len(net_change_list)    
         average_change_round = round(average_change,2)
+
 #for max and min numbers
         date.append(row[0])
         max_increase = max(net_change_list)
         min_decrease = min(net_change_list)
+
 #for max and min date 
         max_date = date[net_change_list.index(max_increase)]
         min_date = date[net_change_list.index(min_decrease)]
