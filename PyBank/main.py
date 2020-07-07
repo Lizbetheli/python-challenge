@@ -27,7 +27,7 @@ with open(csvpath,newline='') as csvfile:
         prev_net = int(row[1])
         net_change_list += [net_change]    
         average_change = sum(net_change_list) / len(net_change_list)    
-
+        average_change_round = round(average_change,2)
 #for max and min numbers
         date.append(row[0])
         max_increase = max(net_change_list)
@@ -40,7 +40,7 @@ with open(csvpath,newline='') as csvfile:
     print(f'Financial Analysis' + '\n')
     print(f'------------------'+ '\n')
     print("Total:" + str(total_months))
-    print(f"Average Change: ${average_change}")
+    print(f"Average Change: ${average_change_round}")
     print(f"Greatest Increase in Profits: {max_date} (${max_increase})")
     print(f"Greatest Decrease in Profits: {min_date} (${min_decrease})")
     
