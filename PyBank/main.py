@@ -46,3 +46,14 @@ with open(csvpath,newline='') as csvfile:
     print(f"Average Change: ${average_change_round}")
     print(f"Greatest Increase in Profits: {max_date} (${max_increase})")
     print(f"Greatest Decrease in Profits: {min_date} (${min_decrease})")
+
+#export a text file
+output_path=os.path.join("..", "PyBank","Analysis.txt")
+with open(output_path, 'w', newline= '') as text_file:
+#contents of text file 
+        print(f'Financial Analysis' + '\n', file=text_file)
+        print(f'------------------'+ '\n',file=text_file)
+        print("Total Months:" + str(total_months),file=text_file)
+        print(f"Average Change: ${average_change_round}",file=text_file)
+        print(f"Greatest Increase in Profits: {max_date} (${max_increase})",file=text_file)
+        print(f"Greatest Decrease in Profits: {min_date} (${min_decrease})",file=text_file)

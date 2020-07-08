@@ -41,3 +41,16 @@ for candidate, num_votes in candidates.items():
 print("-------------- ")
 print(f"Winner: {winner}")
 print("-------------- ")
+
+output_path=os.path.join("..", "PyPoll","Analysis.txt")
+with open(output_path, 'w', newline= '') as text_file:
+#contents of text file 
+    print("Election Results", file=text_file)
+    print("-------------- ", file=text_file)
+    print(f"Total Votes: {total_votes}", file=text_file)
+    print("--------------", file=text_file)
+    for candidate, num_votes in candidates.items():
+        print(candidate, ': ', num_votes, " (", str(round(100*num_votes/total_votes)), "%)", file=text_file)
+    print("-------------- ", file=text_file)
+    print(f"Winner: {winner}", file=text_file)
+    print("-------------- ", file=text_file)
